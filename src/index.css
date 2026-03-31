@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand-blue: #0057ad;
+    --color-brand-blue-deep: #0a2244;
+    --color-brand-blue-ink: #06101d;
+    --color-brand-gold: #e28b17;
+    --color-brand-gold-soft: #f2c06e;
+    --color-steel-50: #eef4fa;
+    --color-steel-100: #d7e3f0;
+    --color-steel-200: #b5c7da;
+    --color-surface: #f8fbff;
+    --color-surface-muted: #edf3f8;
+    --color-text: #102037;
+    --color-text-muted: #5b6b7f;
+    --color-border: rgba(10, 34, 68, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  body {
+    @apply min-h-screen overflow-x-hidden font-sans antialiased;
+    background:
+      radial-gradient(circle at top left, rgba(0, 87, 173, 0.2), transparent 20%),
+      radial-gradient(circle at top right, rgba(226, 139, 23, 0.14), transparent 18%),
+      linear-gradient(
+        180deg,
+        var(--color-brand-blue-ink) 0%,
+        #0d2447 24%,
+        var(--color-steel-50) 68%,
+        var(--color-surface) 100%
+      );
+    color: var(--color-text);
+    scrollbar-width: none;
+  }
+
+  #root {
+    @apply min-h-screen overflow-x-hidden;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
