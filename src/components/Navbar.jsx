@@ -24,7 +24,7 @@ export default function Navbar({ currentPath = "/" }) {
         >
           <img
             alt="Westeel logo"
-            className="h-11 w-auto object-contain sm:h-14"
+            className="h-20 w-auto object-contain sm:h-24"
             src="/logo.png"
           />
         </a>
