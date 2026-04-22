@@ -57,14 +57,10 @@ export default function ProjectsPage() {
                     Projects across steel, prefab, roofing, flooring, and civil work
                   </h1>
                   <p className="mt-6 max-w-[60ch] text-base leading-8 text-[rgba(238,244,250,0.78)] sm:text-lg">
-                    This page gives Westeel a dedicated projects gallery similar
-                    to the reference site, but adapted to the current visual
-                    system and page structure.
+                    Discover projects that showcase our strength in steel, prefab, roofing, flooring, and civil construction. Every build reflects our commitment to quality, efficiency, and reliable execution.
                   </p>
                   <p className="mt-4 max-w-[64ch] text-base leading-8 text-[rgba(238,244,250,0.7)] sm:text-lg">
-                    Visitors can filter by project type and review actual work
-                    without leaving the site flow, which makes the portfolio
-                    easier to scan and more credible in client discussions.
+                    Browse by category to find relevant work and understand the scale and standards we deliver across industries.
                   </p>
                 </div>
 
@@ -74,7 +70,7 @@ export default function ProjectsPage() {
                       key={item.title}
                       className="rounded-[24px] border border-white/10 bg-[rgba(238,244,250,0.05)] p-5 backdrop-blur-xl"
                     >
-                      <p className="text-sm font-semibold text-white">
+                      <p className="text-lg font-bold text-white">
                         {item.title}
                       </p>
                       <p className="mt-3 text-sm leading-6 text-[rgba(238,244,250,0.66)]">

@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import ContactEnquiryDialog from "./ContactEnquiryDialog";
 import { WHATSAPP_URL } from "../utils/contact";
 
-const heroSlides = ["/landing_image.PNG", "/landingpage_slideshow/IMG_2900.PNG"];
+const heroSlides = ["/landing_image.PNG",
+  "/landingpage_slideshow/IMG_MODULAR.jpeg",
+  "/landingpage_slideshow/IMG_2900.PNG"];
 
 function ArrowCircleIcon() {
   return (
@@ -94,7 +96,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(226,139,23,0.18),_transparent_24%),radial-gradient(circle_at_bottom_left,_rgba(120,128,138,0.12),_transparent_28%)]" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pb-12 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-36">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pb-12 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-30">
         <motion.div
           animate={{ opacity: 1, x: 0 }}
           className="mx-auto flex max-w-[760px] flex-col items-center text-center [text-shadow:0_2px_18px_rgba(0,0,0,0.65)]"

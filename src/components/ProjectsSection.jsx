@@ -251,10 +251,10 @@ export default function ProjectsSection() {
                   >
                     <button
                       aria-label={`View full image for ${project.title}`}
-                      className={`relative block w-full text-left ${
+                      className={`relative block h-full w-full text-left ${
                         showFeaturedLayout && index === 0
-                          ? "min-h-[360px] sm:min-h-[420px]"
-                          : "min-h-[280px]"
+                          ? "min-h-[400px] sm:min-h-[480px]"
+                          : "min-h-[300px]"
                       }`}
                       onClick={() => setSelectedProject(project)}
                       type="button"
@@ -264,7 +264,7 @@ export default function ProjectsSection() {
                         className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
                         src={project.image}
                       />
-                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,16,29,0.08)_0%,rgba(6,16,29,0.24)_34%,rgba(6,16,29,0.82)_100%)]" />
+                      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,16,29,0)_0%,rgba(6,16,29,0.1)_40%,rgba(6,16,29,0.85)_100%)]" />
                       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(226,139,23,0.2),_transparent_28%)]" />
 
                       <div className="absolute right-4 top-4 rounded-full border border-white/18 bg-[rgba(6,16,29,0.4)] px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md transition group-hover:bg-[rgba(6,16,29,0.55)]">
@@ -274,14 +274,11 @@ export default function ProjectsSection() {
                       <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
                         <div className="flex items-start justify-between gap-4">
                           <div>
-                            <span className="inline-flex rounded-full border border-white/18 bg-white/10 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[var(--color-brand-gold-soft)] backdrop-blur-md">
+                            <span className="inline-flex rounded-full border border-white/20 bg-white/12 px-3 py-1 text-[0.7rem] font-bold uppercase tracking-[0.22em] text-[var(--color-brand-gold-soft)] backdrop-blur-md">
                               {categories.find(
                                 (category) => category.id === project.category,
                               )?.label ?? "Project"}
                             </span>
-                            <h3 className="mt-4 text-2xl font-semibold tracking-[-0.05em] text-white">
-                              {project.title}
-                            </h3>
                           </div>
 
                           <span className="hidden rounded-full border border-white/12 bg-[rgba(6,16,29,0.42)] px-3 py-1 text-xs font-medium text-[rgba(238,244,250,0.72)] backdrop-blur md:inline-flex">
@@ -289,14 +286,6 @@ export default function ProjectsSection() {
                           </span>
                         </div>
 
-                        <div className="mt-4 flex flex-wrap gap-2 text-xs font-medium text-[rgba(238,244,250,0.72)]">
-                          <span className="rounded-full bg-white/10 px-3 py-1 backdrop-blur-md">
-                            {project.stage}
-                          </span>
-                          <span className="rounded-full bg-white/10 px-3 py-1 backdrop-blur-md">
-                            {project.detail}
-                          </span>
-                        </div>
                       </div>
                     </button>
                   </motion.article>
@@ -347,20 +336,11 @@ export default function ProjectsSection() {
                     <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-gold-soft)]">
                       Image Viewer
                     </p>
-                    <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-white">
-                      {selectedProject.title}
-                    </h3>
                     <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium text-[rgba(238,244,250,0.82)]">
                       <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5">
                         {categories.find(
                           (category) => category.id === selectedProject.category,
                         )?.label ?? "Project"}
-                      </span>
-                      <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5">
-                        {selectedProject.stage}
-                      </span>
-                      <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5">
-                        {selectedProject.detail}
                       </span>
                     </div>
                   </div>
