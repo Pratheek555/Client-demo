@@ -54,7 +54,7 @@ export default function Services() {
           </div>
 
           <div className="lg:col-span-8 lg:col-start-3 lg:max-w-[760px] lg:justify-self-center">
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-gold)]">
+            <p className="text-center text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-brand-gold)] sm:text-base">
               Our services
             </p>
             <h2 className="mx-auto mt-4 max-w-[13ch] text-center text-4xl font-semibold leading-[0.94] tracking-[-0.06em] text-[var(--color-brand-blue-deep)] sm:text-5xl lg:text-[4.6rem]">

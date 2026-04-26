@@ -5,7 +5,8 @@ import { WHATSAPP_URL } from "../utils/contact";
 
 const heroSlides = ["/landing_image.PNG",
   "/landingpage_slideshow/IMG_MODULAR.jpeg",
-  "/landingpage_slideshow/IMG_2900.PNG"];
+  "/landingpage_slideshow/IMG_2900.PNG",
+  "/landingpage_slideshow/IMG_2901.PNG",];
 
 function ArrowCircleIcon() {
   return (
@@ -99,7 +100,7 @@ export default function Hero() {
       <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pb-12 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pb-16 lg:pt-30">
         <motion.div
           animate={{ opacity: 1, x: 0 }}
-          className="mx-auto flex max-w-[760px] flex-col items-center text-center [text-shadow:0_2px_18px_rgba(0,0,0,0.65)]"
+          className="mx-auto flex max-w-[900px] flex-col items-center text-center [text-shadow:0_2px_18px_rgba(0,0,0,0.65)]"
           initial={{ opacity: 0, x: -32 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
@@ -107,11 +108,12 @@ export default function Hero() {
             Building the Future, Today
           </span>
 
-          <h1 className="mt-7 text-[3.5rem] font-black leading-[0.88] tracking-[-0.07em] text-[var(--color-brand-gold)] [text-shadow:0_6px_30px_rgba(0,0,0,0.5)] sm:mt-8 sm:text-6xl sm:leading-[0.9] sm:tracking-[-0.065em] lg:text-[5.25rem]">
-            <span className="block">Steel &amp;</span>
-            <span className="block">Modular</span>
-            <span className="block text-[3.35rem] leading-[0.9] sm:text-inherit sm:leading-inherit">
-              Construction
+          <h1 className="mt-7 font-black text-[var(--color-brand-gold)] [text-shadow:0_6px_30px_rgba(0,0,0,0.5)] sm:mt-8">
+            <span className="block text-[1.8rem] leading-[1.1] tracking-[-0.05em] sm:text-[3rem] lg:text-[3.8rem]">
+              Pre-Engineered Building System
+            </span>
+            <span className="block text-[1.2rem] leading-[1.1] tracking-[-0.02em] sm:text-[2rem] lg:text-[2.4rem] opacity-90 mt-2 sm:mt-4">
+              Modular Construction
             </span>
           </h1>
 

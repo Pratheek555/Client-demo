@@ -112,6 +112,13 @@ const projects = [
     stage: "Structural package review",
     detail: "Built-up frame components",
   },
+  {
+    title: "Modern Modular Residence",
+    category: "building",
+    image: "/projects/modular_H.png",
+    stage: "Completed Build",
+    detail: "Fast-track modular residential project with premium finishes.",
+  },
 ];
 
 export default function ProjectsSection() {
@@ -167,7 +174,7 @@ export default function ProjectsSection() {
           <div className="grid gap-10 lg:grid-cols-[minmax(280px,0.78fr)_minmax(0,1.22fr)] lg:gap-12">
             <div className="flex flex-col justify-between">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-brand-gold)]">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-[var(--color-brand-gold)] sm:text-base">
                   Project Gallery
                 </p>
                 <h2 className="mt-4 max-w-[11ch] text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-[var(--color-brand-blue-deep)] sm:text-5xl">
