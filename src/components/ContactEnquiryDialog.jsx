@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const CONTACT_EMAIL = "info@westeel.in";
+const CONTACT_EMAIL = "services@westeel.in";
 const CONTACT_PHONE = "+91 98765 43210";
 
 const initialFormState = {

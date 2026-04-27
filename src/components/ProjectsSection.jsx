@@ -39,6 +39,12 @@ const categories = [
     description:
       "Ground-up civil work aligned with the structural package to keep project delivery coordinated end to end.",
   },
+  {
+    id: "modular",
+    label: "Modular Construction",
+    description:
+      "Prefabricated building sections delivered to site for fast assembly.",
+  },
 ];
 
 const projects = [
@@ -67,6 +73,13 @@ const projects = [
     title: "Industrial Roofing Bay",
     category: "roofing",
     image: "/projects/metal2.jpg",
+    stage: "Sheeting and detailing",
+    detail: "Wide coverage installation",
+  },
+  {
+    title: "Industrial Roofing Structure",
+    category: "roofing",
+    image: "/projects/roofing.jpeg",
     stage: "Sheeting and detailing",
     detail: "Wide coverage installation",
   },
@@ -114,10 +127,143 @@ const projects = [
   },
   {
     title: "Modern Modular Residence",
-    category: "building",
+    category: "modular",
     image: "/projects/modular_H.png",
     stage: "Completed Build",
     detail: "Fast-track modular residential project with premium finishes.",
+  },
+  {
+    title: "Commercial Building Structure",
+    category: "building",
+    image: "/projects/building.jpeg",
+    stage: "Structural Assembly",
+    detail: "Multi-story steel framework execution.",
+  },
+  {
+    title: "Industrial Building Fabrication",
+    category: "building",
+    image: "/projects/building.jpg",
+    stage: "Site Delivery",
+    detail: "Pre-fabricated building components ready for assembly.",
+  },
+  {
+    title: "Steel Building Envelope",
+    category: "building",
+    image: "/projects/building1.jpeg",
+    stage: "Enclosure Progress",
+    detail: "Primary structural support for building facade.",
+  },
+  {
+    title: "Mixed-use Building Frame",
+    category: "building",
+    image: "/projects/building1.jpg",
+    stage: "Execution Milestone",
+    detail: "Structural detailing for commercial and industrial use.",
+  },
+  {
+    title: "Heavy Structural Fabrication",
+    category: "building",
+    image: "/projects/building2.jpg",
+    stage: "Quality Inspection",
+    detail: "High-load capacity building framework.",
+  },
+  {
+    title: "Modular Base - PRE FAB",
+    category: "modular",
+    image: "/projects/civil.PNG",
+    stage: "AI Generated Render",
+    detail: "Reinforced concrete base for structural stability.",
+  },
+  {
+    title: "Modular Living Pod",
+    category: "modular",
+    image: "/projects/modular.PNG",
+    stage: "Completed Assembly",
+    detail: "Sustainable modular construction.",
+  },
+  {
+    title: "Office Building",
+    category: "modular",
+    image: "/projects/modular1.PNG",
+    stage: "Transport & Placement",
+    detail: "Pre-assembled modules delivered to site.",
+  },
+  {
+    title: "Prefabricated Housing",
+    category: "modular",
+    image: "/projects/modular2.PNG",
+    stage: "Final Touches",
+    detail: "Rapid deployment modular residential unit.",
+  },
+  {
+    title: "Pre-Fab Office Space",
+    category: "modular",
+    image: "/projects/modular3.PNG",
+    stage: "AI Generated Render",
+    detail: "Architecturally driven modular framework.",
+  },
+  {
+    title: "Rooftop Home",
+    category: "modular",
+    image: "/projects/rooftop_homes.PNG",
+    stage: "AI Generated Render",
+    detail: "Architecturally driven modular framework.",
+  },
+  {
+    title: "Modular Office Space",
+    category: "modular",
+    image: "/projects/modular4.PNG",
+    stage: "Interior Fit-out",
+    detail: "Flexible modular commercial environment.",
+  },
+  {
+    title: "Labour Hutment",
+    category: "modular",
+    image: "/projects/modular5.PNG",
+    stage: "AI Generated Render",
+    detail: "Quality-controlled module manufacturing.",
+  },
+  {
+    title: "Rooftop Homes",
+    category: "modular",
+    image: "/projects/modular6.PNG",
+    stage: "AI Generated Render",
+    detail: "Multi-level modular building execution.",
+  },
+  {
+    title: "Modular Wedding Hall",
+    category: "modular",
+    image: "/projects/modular8.PNG",
+    stage: "Exterior Finishing",
+    detail: "Weather-resistant modular exterior.",
+  },
+  {
+    title: "Modular Pod",
+    category: "modular",
+    image: "/projects/modular10.PNG",
+    stage: "Project Handover",
+    detail: "High-end finishes on a modular structure.",
+  },
+  {
+    title: "Large Span PEB",
+    category: "peb",
+    image: "/projects/peb.jpeg",
+    stage: "Primary Framing",
+    detail: "Engineered for maximum clear floor space.",
+  },
+  {
+    title: "PEB Warehouse",
+    category: "peb",
+    image: "/projects/peb.jpg",
+    stage: "Erection Phase",
+    detail: "Rapid assembly of pre-engineered components.",
+  },
+  {
+    title: "PEB Industrial Facility",
+    category: "peb",
+    image: "/projects/peb.PNG",
+    stage: "Roofing Preparation",
+    detail: "Comprehensive pre-engineered building system.",
   },
 ];
 
@@ -133,8 +279,6 @@ export default function ProjectsSection() {
   const activeCategoryData =
     categories.find((category) => category.id === activeCategory) ??
     categories[0];
-  const showFeaturedLayout =
-    activeCategory === "all" && visibleProjects.length > 3;
 
   useEffect(() => {
     if (!selectedProject) {
@@ -238,16 +382,12 @@ export default function ProjectsSection() {
                 })}
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="mt-6 columns-1 gap-4 space-y-4 sm:columns-2 xl:columns-3">
                 {visibleProjects.map((project, index) => (
                   <motion.article
-                    key={`${activeCategory}-${project.title}`}
+                    key={`${activeCategory}-${project.title}-${index}`}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`group relative overflow-hidden rounded-[28px] border border-[rgba(10,34,68,0.1)] bg-[var(--color-brand-blue-deep)] shadow-[0_28px_64px_-44px_rgba(10,34,68,0.34)] ${
-                      showFeaturedLayout && index === 0
-                        ? "sm:col-span-2 xl:col-span-2 xl:row-span-2"
-                        : ""
-                    }`}
+                    className="group relative break-inside-avoid overflow-hidden rounded-[28px] border border-[rgba(10,34,68,0.1)] bg-[var(--color-brand-blue-deep)] shadow-[0_28px_64px_-44px_rgba(10,34,68,0.34)]"
                     initial={{ opacity: 0, y: 18 }}
                     layout
                     transition={{
@@ -258,17 +398,13 @@ export default function ProjectsSection() {
                   >
                     <button
                       aria-label={`View full image for ${project.title}`}
-                      className={`relative block h-full w-full text-left ${
-                        showFeaturedLayout && index === 0
-                          ? "min-h-[400px] sm:min-h-[480px]"
-                          : "min-h-[300px]"
-                      }`}
+                      className="relative block w-full text-left"
                       onClick={() => setSelectedProject(project)}
                       type="button"
                     >
                       <img
                         alt={project.title}
-                        className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                        className="block h-auto w-full transition duration-500 group-hover:scale-[1.04]"
                         src={project.image}
                       />
                       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,16,29,0)_0%,rgba(6,16,29,0.1)_40%,rgba(6,16,29,0.85)_100%)]" />
@@ -329,8 +465,8 @@ export default function ProjectsSection() {
                 ×
               </button>
 
-              <div className="grid gap-0 lg:grid-cols-[minmax(0,1fr)_320px]">
-                <div className="flex min-h-[48vh] items-center justify-center bg-[radial-gradient(circle_at_top,_rgba(226,139,23,0.12),_transparent_24%),linear-gradient(180deg,rgba(6,16,29,0.86),rgba(4,10,20,0.96))] p-4 sm:p-6">
+              <div className="grid gap-0 lg:grid-cols-[1fr_340px]">
+                <div className="flex min-h-[48vh] items-center justify-center bg-[rgba(6,16,29,0.4)] p-4 sm:p-6">
                   <img
                     alt={selectedProject.title}
                     className="max-h-[78vh] w-auto max-w-full rounded-[20px] object-contain shadow-[0_30px_90px_-40px_rgba(0,0,0,0.85)]"
@@ -338,23 +474,35 @@ export default function ProjectsSection() {
                   />
                 </div>
 
-                <div className="flex flex-col justify-between border-t border-white/10 p-6 text-white lg:border-l lg:border-t-0">
+                <div className="flex flex-col justify-between p-6 text-white sm:p-8 lg:p-10">
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-brand-gold-soft)]">
-                      Image Viewer
+                    <p className="text-xs font-bold uppercase tracking-[0.28em] text-[var(--color-brand-gold-soft)]">
+                      {categories.find(
+                        (category) => category.id === selectedProject.category,
+                      )?.label ?? "Project"} Solution
                     </p>
-                    <div className="mt-5 flex flex-wrap gap-2 text-xs font-medium text-[rgba(238,244,250,0.82)]">
-                      <span className="rounded-full border border-white/10 bg-white/8 px-3 py-1.5">
-                        {categories.find(
-                          (category) => category.id === selectedProject.category,
-                        )?.label ?? "Project"}
-                      </span>
+                    <h3 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                      {selectedProject.title}
+                    </h3>
+                    <div className="mt-8 space-y-4">
+                      <p className="text-sm leading-7 text-[rgba(238,244,250,0.82)]">
+                        <span className="block font-semibold uppercase tracking-wider text-[rgba(238,244,250,0.44)] text-[0.65rem] mb-1">Current Stage</span>
+                        {selectedProject.stage}
+                      </p>
+                      <p className="text-sm leading-7 text-[rgba(238,244,250,0.74)]">
+                        <span className="block font-semibold uppercase tracking-wider text-[rgba(238,244,250,0.44)] text-[0.65rem] mb-1">Technical Detail</span>
+                        {selectedProject.detail}
+                      </p>
                     </div>
                   </div>
 
-                  <p className="mt-8 text-sm leading-7 text-[rgba(238,244,250,0.68)]">
-                    Click outside the frame or press Escape to close the viewer.
-                  </p>
+                  <button
+                    className="mt-10 rounded-full bg-[var(--color-brand-gold)] px-8 py-4 text-sm font-bold text-[var(--color-brand-blue-deep)] shadow-[0_20px_40px_-12px_rgba(226,139,23,0.3)] transition hover:-translate-y-0.5 hover:bg-[var(--color-brand-gold-soft)] hover:shadow-[0_24px_48px_-12px_rgba(226,139,23,0.4)]"
+                    onClick={() => setSelectedProject(null)}
+                    type="button"
+                  >
+                    Close Viewer
+                  </button>
                 </div>
               </div>
             </motion.div>
