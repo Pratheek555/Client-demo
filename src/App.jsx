@@ -4,8 +4,10 @@ import ProjectsPage from "./components/ProjectsPage";
 import ServicesPage from "./components/ServicesPage";
 import FloatingContactBar from "./components/FloatingContactBar";
 import { getCurrentLocation, normalizePath } from "./utils/navigation";
+// import { useSecurity } from "./utils/useSecurity";
 
 export default function App() {
+  // useSecurity();
   const [location, setLocation] = useState(() => getCurrentLocation());
 
   useEffect(() => {

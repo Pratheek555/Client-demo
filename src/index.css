@@ -38,6 +38,8 @@
       );
     color: var(--color-text);
     scrollbar-width: none;
+    user-select: none;
+    -webkit-user-select: none;
   }
 
   #root {
@@ -47,5 +49,11 @@
   html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none;
+  }
+
+  @media print {
+    html, body {
+      display: none !important;
+    }
   }
 }

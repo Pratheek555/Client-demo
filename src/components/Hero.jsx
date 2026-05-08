@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import ContactEnquiryDialog from "./ContactEnquiryDialog";
 import { WHATSAPP_URL } from "../utils/contact";
 
-const heroSlides = ["/landing_image.PNG",
-  "/landingpage_slideshow/IMG_MODULAR.jpeg",
-  "/landingpage_slideshow/IMG_2900.PNG",
-  "/landingpage_slideshow/IMG_2901.PNG",];
+const heroSlides = ["/landing_image.webp",
+  "/landingpage_slideshow/IMG_MODULAR.webp",
+  "/landingpage_slideshow/IMG_2900.webp",
+  "/landingpage_slideshow/IMG_2901.webp",];
 
 function ArrowCircleIcon() {
   return (
@@ -61,6 +61,9 @@ function ContactIcon() {
 export default function Hero() {
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
+  // Track which slides have been requested so we only download images on demand.
+  // Slide 0 is always pre-loaded (it's the LCP element).
+  const [loadedSlides, setLoadedSlides] = useState(() => new Set([0]));
 
   useEffect(() => {
     if (heroSlides.length < 2) {
@@ -68,7 +71,17 @@ export default function Hero() {
     }
 
     const intervalId = window.setInterval(() => {
-      setActiveSlide((currentSlide) => (currentSlide + 1) % heroSlides.length);
+      setActiveSlide((currentSlide) => {
+        const next = (currentSlide + 1) % heroSlides.length;
+        // Preload the upcoming slide one tick ahead
+        setLoadedSlides((prev) => {
+          if (prev.has(next)) return prev;
+          const updated = new Set(prev);
+          updated.add(next);
+          return updated;
+        });
+        return next;
+      });
     }, 4500);
 
     return () => window.clearInterval(intervalId);
@@ -84,11 +97,18 @@ export default function Hero() {
           {heroSlides.map((slide, index) => (
             <img
               key={slide}
-              alt="Westeel landing background"
+              alt="Westeel steel building project"
               className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-[1600ms] ease-out ${
                 index === activeSlide ? "opacity-100" : "opacity-0"
               }`}
-              src={slide}
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "low"}
+              height="1080"
+              loading={index === 0 ? "eager" : "lazy"}
+              // Only assign src once the slide has been activated — avoids
+              // downloading all 4 images up front (was the 961 KiB LCP hit)
+              src={loadedSlides.has(index) ? slide : undefined}
+              width="1920"
             />
           ))}
         </div>
